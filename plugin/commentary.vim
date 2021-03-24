@@ -63,7 +63,7 @@ function! s:apply(lnum1, lnum2) abort
   endif
 
   let lines = []
-  for lnum in range(lnum1,lnum2)
+  for lnum in range(a:lnum1,a:lnum2)
     let line = getline(lnum)
     if strlen(r) > 2 && l.r !~# '\\'
       let line = substitute(line,
@@ -77,7 +77,7 @@ function! s:apply(lnum1, lnum2) abort
     endif
     call add(lines, line)
   endfor
-  call setline(lnum1, lines)
+  call setline(a:lnum1, lines)
   let modelines = &modelines
   try
     set modelines=0
