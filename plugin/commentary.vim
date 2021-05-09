@@ -1,7 +1,6 @@
 " commentary.vim - Comment stuff out
-" Maintainer:   Tim Pope <http://tpo.pe/>
+" Maintainer:   Khaveesh N / Tim Pope <http://tpo.pe/>
 " Version:      1.3
-" GetLatestVimScripts: 3695 1 :AutoInstall: commentary.vim
 
 if exists("g:loaded_commentary") || v:version < 700
   finish
@@ -115,7 +114,6 @@ nnoremap <expr>   <Plug>Commentary     <SID>go()
 nnoremap <expr>   <Plug>CommentaryLine <SID>go() . '_'
 onoremap <silent> <Plug>Commentary        :<C-U>call <SID>textobject(get(v:, 'operator', '') ==# 'c')<CR>
 nnoremap <silent> <Plug>ChangeCommentary c:<C-U>call <SID>textobject(1)<CR>
-nmap <silent> <Plug>CommentaryUndo :echoerr "Change your <Plug>CommentaryUndo map to <Plug>Commentary<Plug>Commentary"<CR>
 xnoremap <expr> <Plug>(CommentaryYank)     <SID>yank()
 nnoremap <expr> <Plug>(CommentaryYank)     <SID>yank()
 nnoremap <expr> <Plug>(CommentaryYankLine) <SID>yank() . '_'
@@ -125,9 +123,9 @@ if !hasmapto('<Plug>Commentary') || maparg('gc','n') ==# ''
   nmap gc  <Plug>Commentary
   omap gc  <Plug>Commentary
   nmap gcc <Plug>CommentaryLine
-  xmap gy  <Plug>(CommentaryYank)
-  nmap gy  <Plug>(CommentaryYank)
-  nmap gyy <Plug>(CommentaryYankLine)
+  xmap yc  <Plug>(CommentaryYank)
+  nmap yc  <Plug>(CommentaryYank)
+  nmap ycc <Plug>(CommentaryYankLine)
   if maparg('c','n') ==# '' && !exists('v:operator')
     nmap cgc <Plug>ChangeCommentary
   endif
